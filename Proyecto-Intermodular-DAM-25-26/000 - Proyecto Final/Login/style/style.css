@@ -1,0 +1,336 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-image: linear-gradient(to right, rgb(250, 235, 215), rgb(255, 250, 240));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    font-family: 'Inter', sans-serif;
+    height: 100vh;
+    --primary: #FF7F50;
+}
+
+h1 {
+    font-weight: 800;
+    margin: 0;
+    margin-bottom: 1rem;
+    color: var(--primary);
+}
+
+h2 {
+    text-align: center;
+}
+
+p {
+    font-size: 14px;
+    font-weight: 100;
+    line-height: 20px;
+    letter-spacing: 0.5px;
+    margin: 20px 0 30px;
+}
+
+span {
+    font-size: 12px;
+    margin-bottom: 15px;
+    display: block;
+}
+
+a {
+    color: #333;
+    font-size: 14px;
+    text-decoration: none;
+    margin: 15px 0;
+}
+
+button {
+    border-radius: 20px;
+    border: 1px solid var(--primary);
+    background: var(--primary);
+    background: linear-gradient(to right, rgb(255, 69, 0), rgb(255, 127, 80));
+    color: #FFFFFF;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 12px 45px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    transition: transform 80ms ease-in, box-shadow 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 4px 15px rgba(235, 125, 36, 0.3);
+    margin-top: 1rem;
+    /* Added spacing */
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+button:focus {
+    outline: none;
+}
+
+button:hover {
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+    background: linear-gradient(to right, rgb(255, 69, 0), rgb(255, 127, 80));
+}
+
+button.ghost {
+    background: transparent;
+    border-color: #FFFFFF;
+    box-shadow: none;
+}
+
+button.ghost:hover {
+    background: #FFFFFF;
+    color: var(--primary);
+    box-shadow: none;
+}
+
+form {
+    background-color: #FFFFFF;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 50px;
+    height: 100%;
+    text-align: center;
+}
+
+.container {
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25),
+        0 10px 10px rgba(0, 0, 0, 0.22);
+    position: relative;
+    overflow: hidden;
+    width: 900px;
+    max-width: 100%;
+    min-height: 550px;
+}
+
+.form-container {
+    position: absolute;
+    top: 0;
+    height: 100%;
+    transition: all 0.6s ease-in-out;
+}
+
+.sign-in-container {
+    left: 0;
+    width: 50%;
+    z-index: 2;
+    transform: translateX(100%);
+}
+
+.container.right-panel-active .sign-in-container {
+    transform: translateX(100%);
+
+    transform: translateX(0%);
+
+}
+
+/* Correct implementation for "Login Right, Register Left" */
+
+/* LOGIN FORM (Right side by default) */
+.sign-in-container {
+    left: 0;
+    width: 50%;
+    z-index: 2;
+    transform: translateX(100%);
+    /* Positioned on Right */
+}
+
+.container.right-panel-active .sign-in-container {
+    transform: translateX(100%);
+}
+
+/* REGISTRATION FORM (Left side by default) */
+.sign-up-container {
+    left: 0;
+    width: 50%;
+    z-index: 1;
+    opacity: 0;
+    /* Hidden initially */
+}
+
+.container.right-panel-active .sign-up-container {
+    transform: translateX(0%);
+    opacity: 1;
+    z-index: 5;
+    animation: show 0.6s;
+}
+
+@keyframes show {
+
+    0%,
+    49.99% {
+        opacity: 0;
+        z-index: 1;
+    }
+
+    50%,
+    100% {
+        opacity: 1;
+        z-index: 5;
+    }
+}
+
+/* OVERLAY CONTAINER */
+.overlay-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    /* Start on Left */
+    width: 50%;
+    height: 100%;
+    overflow: hidden;
+    transition: transform 0.6s ease-in-out;
+    z-index: 100;
+}
+
+.container.right-panel-active .overlay-container {
+    transform: translateX(100%);
+    /* Move to Right */
+}
+
+/* OVERLAY BACKGROUND */
+.overlay {
+    background: -webkit-linear-gradient(to right, rgb(255, 69, 0), rgb(255, 127, 80));
+    background: linear-gradient(to right, rgb(255, 69, 0), rgb(255, 127, 80));
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 0 0;
+    color: #FFFFFF;
+    position: relative;
+    left: -100%;
+    height: 100%;
+    width: 200%;
+    transform: translateX(0);
+    /* Aligned for Left Panel visibility */
+    transition: transform 0.6s ease-in-out;
+}
+
+.container.right-panel-active .overlay {
+    transform: translateX(50%);
+    /* Shift background */
+}
+
+/* OVERLAY PANELS */
+.overlay-panel {
+    position: absolute;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 0 40px;
+    text-align: center;
+    top: 0;
+    height: 100%;
+    width: 50%;
+    transform: translateX(0);
+    transition: transform 0.6s ease-in-out;
+}
+
+/* Left Panel (Visible initially) -> "Bienvenido de nuevo... Iniciar Sesion" button? No.
+   If Login is Right, we want the Overlay on the Left to say "Registrarse" (Sign Up).
+   Wait.
+   On Left (Overlay): "Hola Amigo! Registrarse".
+   On Right (Form): Login Inputs.
+*/
+
+.overlay-left {
+    transform: translateX(0);
+    /* Used when overlay is on Left? No, usually distinct transforms. */
+    /* Let's name them by function. */
+    /* This panel is for "Already have account? Sign In" -> Should appear when Register Form (Left) is active. */
+    /* So this panel sits on the Right side of the 200% overlay? or Left? */
+    /* Overlay is 200% width. */
+    transform: translateX(-20%);
+}
+
+.container.right-panel-active .overlay-left {
+    transform: translateX(0);
+}
+
+.overlay-right {
+    right: 0;
+    transform: translateX(0);
+}
+
+.container.right-panel-active .overlay-right {
+    transform: translateX(20%);
+}
+
+
+.social-container {
+    margin: 20px 0;
+}
+
+.social-container a {
+    border: 1px solid #DDDDDD;
+    border-radius: 50%;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 5px;
+    height: 40px;
+    width: 40px;
+}
+
+.input-group {
+    position: relative;
+    width: 100%;
+    margin: 8px 0;
+}
+
+.input-group input {
+    background-color: #eee;
+    border: none;
+    padding: 12px 15px;
+    padding-left: 40px;
+    width: 100%;
+    font-family: 'Inter', sans-serif;
+}
+
+.input-group i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #888;
+}
+
+footer {
+    background-color: #222;
+    color: #fff;
+    font-size: 14px;
+    bottom: 0;
+    position: fixed;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 999;
+}
+
+form h1 {
+    color: var(--primary);
+}
+
+.overlay-panel h1 {
+    color: #FFFFFF;
+}
+
+@media (max-width: 768px) {
+    .container {
+        width: 100%;
+        min-height: 800px;
+        flex-direction: column;
+    }
+}

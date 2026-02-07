@@ -1,0 +1,49 @@
+{
+	"datos_personales":{
+		"nombre":"Valentin",
+		"apellidos":"De Gennaro",
+		"correo":"info@valentin.com",
+		"telefonos":["6555245","4568763"]
+	},
+	"experiencias_laborales":[
+		{
+			"titulo":"Conductor VTC",
+			"empresa":"MooveCars",
+			"timesnap":"2025-2025",
+			"descripcion":"Conductor de vtc mediante la aplicación de uber."
+		},
+		{
+			"titulo":"Administrativo",
+			"empresa":"4 Play",
+			"timesnap":"2024-2025",
+			"descripcion":"Gestion de ventas y carga de datos en la plataforma propia de la empresa."
+		},
+		{
+			"titulo":"Delivery",
+			"empresa":"Burguer King",
+			"timesnap":"2023-2023",
+			"descripcion":"Delivery de alimentos en ciclomotor, venta de alimentos en mostrador y preparación de pedidos."
+		},
+		{
+			"titulo":"Administrativo",
+			"empresa":"SuValencia",
+			"timesnap":"2022-2023",
+			"descripcion":"Gestion de redes sociales, atencion y captación de clientes, manejo de excel y creación de pagina web."
+		}
+	],
+	"Formación":[
+		{
+			"titulo":"Desarrollo de aplicaciónes multiplataforma",
+			"institución":"CEAC FP",
+			"timesnap":"2025-Actualmente"
+
+		},
+		{
+			"titulo":"Bachillerato en ciensias sociales y humanidades",
+			"institución":"IADES",
+			"timesnap":"2017-2022"
+
+		}
+	]
+	
+}

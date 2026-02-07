@@ -1,0 +1,12 @@
+{
+	"datos personales":{
+		"nombre":"Valentin",
+		"apellidos":"De Gennaro",
+		"email":"valentin@jocarsa.com",
+		"telefono":"642545998",
+		"direccion":"Calle principal 1",
+		"codigo_postal":"46000 Valencia"
+	},
+	"experiencia":"",
+	"formacion":""
+}
